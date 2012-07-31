@@ -216,7 +216,9 @@
                 chart.labels[i].push(paper[mark](x + 5, h, 5).attr({ fill: clr, stroke: "none" }));
                 chart.labels[i].push(txt = paper.text(x + 20, h, labels[j] || values[j]).attr(chartinst.txtattr).attr({ fill: opts.legendcolor || "#000", "text-anchor": "start"}));
                 covers[i].label = chart.labels[i];
-                h += txt.getBBox().height * 1.2;
+                var lineheight;
+                opts.lineheight ? lineheight = opts.lineheight : lineheight = 1.2;
+                h += txt.getBBox().height * lineheight;
             }
 
             var bb = chart.labels.getBBox(),
